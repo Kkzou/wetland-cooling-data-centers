@@ -1,0 +1,26 @@
+{
+  "name": "wanwu",
+  "version": "0.1.0",
+  "description": "01wanwu.si: turn a researcher's raw materials into clean public study pages. MCP server + static site builder.",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "wanwu-mcp": "mcp/server.mjs"
+  },
+  "scripts": {
+    "mcp": "node mcp/server.mjs",
+    "build": "node site/build.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "mammoth": "^1.13.0",
+    "marked": "^14.1.4",
+    "pdf-parse": "^1.1.1",
+    "xlsx": "^0.18.5",
+    "zod": "^3.25.76"
+  }
+}

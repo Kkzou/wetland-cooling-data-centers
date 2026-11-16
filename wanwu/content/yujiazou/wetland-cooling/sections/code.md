@@ -1,0 +1,1 @@
+The Earth Engine scripts run in order (00 to 03) in the [Earth Engine Code Editor](https://code.earthengine.google.com/) and export CSV tables to Google Drive. `make_figures.py` rebuilds the figures with pandas, statsmodels and matplotlib. Everything is also on [GitHub](https://github.com/Kkzou/wetland-cooling-data-centers).

@@ -1,0 +1,237 @@
+{
+  "slug": "wetland-cooling",
+  "owner": "yujiazou",
+  "title": "Can wetlands cool the water footprint of AI data centers?",
+  "subtitle": "Columbia University · Northern Virginia",
+  "summary": "Northern Virginia is the world's largest data center cluster, and its facilities used about 1.85 billion gallons of water in 2023. This study asks whether nearby wetlands lower the heat that drives that water use, using satellite data and state water records.",
+  "status": "in-progress",
+  "year": 2026,
+  "tags": [
+    "Remote sensing",
+    "Econometrics",
+    "Data centers",
+    "Wetlands"
+  ],
+  "authors": [
+    {
+      "name": "Yujia Zou",
+      "handle": "yujiazou",
+      "affiliation": "Columbia University"
+    }
+  ],
+  "keyResults": [
+    {
+      "value": "−3.3 °C",
+      "label": "Wetlands run cooler in summer",
+      "detail": "Daytime surface temperature near Occoquan Bay wetland vs. Data Center Alley, 72 months (p < 0.001)."
+    },
+    {
+      "value": "+43,600 gal",
+      "label": "Heat raises water use",
+      "detail": "Extra monthly groundwater withdrawal per +1 °C at one data center in the pilot model (p = 0.002)."
+    },
+    {
+      "value": "−1.2 M gal",
+      "label": "Cooling technology matters",
+      "detail": "Monthly drop in withdrawal after the facility's 2023 cooling retrofit (p < 0.001)."
+    }
+  ],
+  "links": {
+    "repo": "https://github.com/Kkzou/wetland-cooling-data-centers"
+  },
+  "license": "",
+  "materials": [
+    {
+      "id": "m001",
+      "title": "fig1 lst timeseries",
+      "file": "files/m001-fig1_lst_timeseries.png",
+      "originalName": "fig1_lst_timeseries.png",
+      "kind": "image",
+      "section": "outcome",
+      "visibility": "public",
+      "caption": "Monthly surface temperature, wetland vs. data center core, 2019 to 2024.",
+      "description": "",
+      "size": 138692,
+      "extract": {
+        "status": "ok",
+        "note": "Image: shown as a figure. Ask the author for a caption.",
+        "chars": 0
+      },
+      "addedAt": "2026-11-16T02:44:58.411Z",
+      "visibilityConfirmedAt": "2026-11-16T02:45:24.897Z"
+    },
+    {
+      "id": "m002",
+      "title": "fig2 seasonal difference",
+      "file": "files/m002-fig2_seasonal_difference.png",
+      "originalName": "fig2_seasonal_difference.png",
+      "kind": "image",
+      "section": "outcome",
+      "visibility": "public",
+      "caption": "The cooling gap is largest in spring and summer, when cooling demand peaks.",
+      "description": "",
+      "size": 39663,
+      "extract": {
+        "status": "ok",
+        "note": "Image: shown as a figure. Ask the author for a caption.",
+        "chars": 0
+      },
+      "addedAt": "2026-11-16T02:44:58.481Z",
+      "visibilityConfirmedAt": "2026-11-16T02:45:24.897Z"
+    },
+    {
+      "id": "m003",
+      "title": "fig3 water temperature",
+      "file": "files/m003-fig3_water_temperature.png",
+      "originalName": "fig3_water_temperature.png",
+      "kind": "image",
+      "section": "outcome",
+      "visibility": "public",
+      "caption": "Water withdrawal rises with temperature in both cooling regimes.",
+      "description": "",
+      "size": 106210,
+      "extract": {
+        "status": "ok",
+        "note": "Image: shown as a figure. Ask the author for a caption.",
+        "chars": 0
+      },
+      "addedAt": "2026-11-16T02:44:58.553Z",
+      "visibilityConfirmedAt": "2026-11-16T02:45:24.897Z"
+    },
+    {
+      "id": "m004",
+      "title": "fig4 robustness",
+      "file": "files/m004-fig4_robustness.png",
+      "originalName": "fig4_robustness.png",
+      "kind": "image",
+      "section": "outcome",
+      "visibility": "public",
+      "caption": "Robustness check: the temperature effect weakens once month-of-year effects are controlled, which motivates the multi-facility study.",
+      "description": "",
+      "size": 102820,
+      "extract": {
+        "status": "ok",
+        "note": "Image: shown as a figure. Ask the author for a caption.",
+        "chars": 0
+      },
+      "addedAt": "2026-11-16T02:44:58.730Z",
+      "visibilityConfirmedAt": "2026-11-16T02:45:24.897Z"
+    },
+    {
+      "id": "m005",
+      "title": "Study 2 robustness table",
+      "file": "files/m005-study2_robustness.csv",
+      "originalName": "study2_robustness.csv",
+      "kind": "sheet",
+      "section": "data",
+      "visibility": "public",
+      "caption": "",
+      "description": "Temperature coefficient under five model specifications.",
+      "size": 595,
+      "extract": {
+        "status": "ok",
+        "note": "",
+        "chars": 620
+      },
+      "addedAt": "2026-11-16T02:44:59.029Z",
+      "visibilityConfirmedAt": "2026-11-16T02:45:24.895Z"
+    },
+    {
+      "id": "m006",
+      "title": "make_figures.py",
+      "file": "files/m006-make_figures.py",
+      "originalName": "analysis/make_figures.py",
+      "kind": "code",
+      "section": "code",
+      "visibility": "public",
+      "caption": "",
+      "description": "Python: rebuilds the four figures from the pilot results.",
+      "size": 4563,
+      "extract": {
+        "status": "ok",
+        "note": "",
+        "chars": 4556
+      },
+      "addedAt": "2026-11-16T02:44:59.362Z",
+      "visibilityConfirmedAt": "2026-11-16T02:45:24.897Z"
+    },
+    {
+      "id": "m007",
+      "title": "00_check_assets.js",
+      "file": "files/m007-00_check_assets.js",
+      "originalName": "gee/00_check_assets.js",
+      "kind": "code",
+      "section": "code",
+      "visibility": "public",
+      "caption": "",
+      "description": "Earth Engine: checks that every input asset loads before the long exports.",
+      "size": 3540,
+      "extract": {
+        "status": "ok",
+        "note": "",
+        "chars": 3540
+      },
+      "addedAt": "2026-11-16T02:44:59.445Z",
+      "visibilityConfirmedAt": "2026-11-16T02:45:24.897Z"
+    },
+    {
+      "id": "m008",
+      "title": "01_landsat_wetland_cooling.js",
+      "file": "files/m008-01_landsat_wetland_cooling.js",
+      "originalName": "gee/01_landsat_wetland_cooling.js",
+      "kind": "code",
+      "section": "code",
+      "visibility": "public",
+      "caption": "",
+      "description": "Earth Engine: 30 m Landsat surface temperature for hundreds of wetland patches and their surroundings.",
+      "size": 11257,
+      "extract": {
+        "status": "ok",
+        "note": "",
+        "chars": 11257
+      },
+      "addedAt": "2026-11-16T02:44:59.567Z",
+      "visibilityConfirmedAt": "2026-11-16T02:45:24.897Z"
+    },
+    {
+      "id": "m009",
+      "title": "02_modis_day_night_panel.js",
+      "file": "files/m009-02_modis_day_night_panel.js",
+      "originalName": "gee/02_modis_day_night_panel.js",
+      "kind": "code",
+      "section": "code",
+      "visibility": "public",
+      "caption": "",
+      "description": "Earth Engine: MODIS day and night temperature panel, 2015 to 2025.",
+      "size": 5946,
+      "extract": {
+        "status": "ok",
+        "note": "",
+        "chars": 5946
+      },
+      "addedAt": "2026-11-16T02:44:59.646Z",
+      "visibilityConfirmedAt": "2026-11-16T02:45:24.897Z"
+    },
+    {
+      "id": "m010",
+      "title": "03_facility_wetbulb_weather.js",
+      "file": "files/m010-03_facility_wetbulb_weather.js",
+      "originalName": "gee/03_facility_wetbulb_weather.js",
+      "kind": "code",
+      "section": "code",
+      "visibility": "public",
+      "caption": "",
+      "description": "Earth Engine: monthly dry-bulb and wet-bulb weather at each data center from ERA5-Land.",
+      "size": 4105,
+      "extract": {
+        "status": "ok",
+        "note": "",
+        "chars": 4105
+      },
+      "addedAt": "2026-11-16T02:44:59.754Z",
+      "visibilityConfirmedAt": "2026-11-16T02:45:24.897Z"
+    }
+  ],
+  "createdAt": "2026-11-16T02:44:58.144Z",
+  "updatedAt": "2026-11-16T02:45:24.897Z"
+}
