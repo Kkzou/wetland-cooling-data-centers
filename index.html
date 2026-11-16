@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wetland Cooling and Data Center Water · Yujia Zou</title>
+<meta name="description" content="Research project by Yujia Zou (Columbia University): can wetlands act as nature-based cooling infrastructure for water-intensive AI data centers in Northern Virginia?">
+<meta property="og:title" content="Wetland Cooling and Data Center Water">
+<meta property="og:description" content="Research project by Yujia Zou, Columbia University. Satellite remote sensing and econometrics on wetlands, heat and data center water use in Northern Virginia.">
+<meta property="og:image" content="figures/fig1_lst_timeseries.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%231a73e8'/%3E%3Cpath d='M9 19c3-6 11-6 14 0' stroke='white' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Roboto+Mono:wght@400&display=swap">
+<style>
+/* Single light theme by design: white page, one blue accent, hairline grey borders */
+:root {
+  --bg: #ffffff; --fg: #202124; --muted: #5f6368; --line: #dadce0; --soft: #f8f9fa;
+  --blue: #1a73e8; --green: #188038; --amber: #b06000;
+  --sans: "Roboto", Arial, Helvetica, sans-serif; --mono: "Roboto Mono", ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html, body { background: var(--bg); color: var(--fg); }
+body { margin: 0; font: 400 16px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 880px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+nav { border-bottom: 1px solid var(--line); }
+nav .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 14px; flex-wrap: wrap; }
+nav .name { font-weight: 500; }
+nav .links { display: flex; gap: 20px; flex-wrap: wrap; font-size: 14px; }
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 3px; }
+.hero { padding-block: 64px 40px; display: grid; gap: 18px; }
+.tag { font-size: 13px; color: var(--muted); letter-spacing: .02em; }
+h1 { font-weight: 400; font-size: clamp(28px, 5vw, 40px); line-height: 1.2; margin: 0; letter-spacing: -.01em; text-wrap: balance; }
+.sub { font-size: 18px; color: var(--muted); max-width: 64ch; margin: 0; }
+.pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.pill { font-size: 13px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; color: var(--fg); }
+.pill.blue { border-color: var(--blue); color: var(--blue); }
+section { padding-block: 36px; border-top: 1px solid var(--line); display: grid; gap: 20px; }
+h2 { font-weight: 400; font-size: 24px; margin: 0; }
+h3 { font-weight: 500; font-size: 16px; margin: 0; }
+p { margin: 0; max-width: 68ch; }
+.muted { color: var(--muted); }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.card { border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.big { font-size: 32px; line-height: 1.1; color: var(--blue); font-variant-numeric: tabular-nums; }
+.card p { font-size: 14px; color: var(--muted); }
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+.skills ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; color: var(--fg); font-size: 15px; }
+figure { margin: 0; display: grid; gap: 8px; }
+figure img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 12px; padding: 12px; background: #fff; }
+figcaption { font-size: 14px; color: var(--muted); max-width: 72ch; }
+.figs { display: grid; grid-template-columns: 1fr; gap: 32px; }
+.note { background: var(--soft); border-radius: 12px; padding: 18px 20px; font-size: 15px; display: grid; gap: 6px; }
+.steps { display: grid; gap: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.step { display: grid; grid-template-columns: 1fr auto; gap: 16px; padding: 14px 18px; border-top: 1px solid var(--line); align-items: start; }
+.step:first-child { border-top: 0; }
+.step p { font-size: 14px; color: var(--muted); }
+.st { font-size: 13px; white-space: nowrap; }
+.st.done { color: var(--green); } .st.prog { color: var(--amber); } .st.next { color: var(--muted); }
+footer { border-top: 1px solid var(--line); padding-block: 28px 48px; font-size: 13px; color: var(--muted); }
+footer .wrap { display: grid; gap: 6px; }
+code { font: 13px var(--mono); background: var(--soft); padding: 2px 6px; border-radius: 4px; }
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <span class="name">Yujia Zou</span>
+  <span class="links"><a href="#results">Results</a><a href="#next">Next steps</a><a href="https://github.com/Kkzou/wetland-cooling-data-centers">Code on GitHub</a></span>
+</div></nav>
+
+<main class="wrap">
+  <header class="hero">
+    <span class="tag">Research project · Columbia University · Northern Virginia · updated November 2026</span>
+    <h1>Can wetlands cool the water footprint of AI data centers?</h1>
+    <p class="sub">Northern Virginia is the world's largest data center cluster, and its facilities used about 1.85 billion gallons of water in 2023. I study whether nearby wetlands lower the heat that drives that water use, using satellite data and state water records.</p>
+    <div class="pills">
+      <span class="pill blue">Sole author</span>
+      <span class="pill">Remote sensing</span>
+      <span class="pill">Econometrics</span>
+      <span class="pill">Working paper, preliminary</span>
+    </div>
+  </header>
+
+  <section id="results">
+    <h2>Key results so far</h2>
+    <div class="cards">
+      <div class="card"><span class="big">−3.3 °C</span><h3>Wetlands run cooler in summer</h3><p>Daytime surface temperature near Occoquan Bay wetland vs. Data Center Alley, 72 months (p &lt; 0.001).</p></div>
+      <div class="card"><span class="big">+43,600 gal</span><h3>Heat raises water use</h3><p>Extra monthly groundwater withdrawal per +1 °C at one data center in the pilot model (p = 0.002).</p></div>
+      <div class="card"><span class="big">−1.2 M gal</span><h3>Cooling technology matters</h3><p>Monthly drop in withdrawal after the facility's 2023 cooling retrofit (p &lt; 0.001).</p></div>
+    </div>
+    <div class="figs">
+      <figure>
+        <img src="figures/fig1_lst_timeseries.png" alt="Monthly daytime surface temperature 2019 to 2024: the urban data center area runs hotter than the wetland every summer and the two meet in winter.">
+        <figcaption>Monthly surface temperature, wetland vs. data center core, 2019 to 2024.</figcaption>
+      </figure>
+      <figure>
+        <img src="figures/fig2_seasonal_difference.png" alt="Seasonal wetland minus urban temperature: winter −0.06, spring −2.88, summer −3.29, fall −1.67 °C, with 95% confidence intervals.">
+        <figcaption>The cooling gap is largest in spring and summer, when cooling demand peaks.</figcaption>
+      </figure>
+      <figure>
+        <img src="figures/fig3_water_temperature.png" alt="Monthly groundwater withdrawal rises with air temperature, before and after the April 2023 cooling retrofit.">
+        <figcaption>Water withdrawal rises with temperature in both cooling regimes.</figcaption>
+      </figure>
+      <figure>
+        <img src="figures/fig4_robustness.png" alt="Temperature coefficient under five model specifications; significant with season controls, not significant with month-of-year fixed effects.">
+        <figcaption>My own robustness check: the temperature effect weakens once month-of-year effects are controlled, which motivates the multi-facility study.</figcaption>
+      </figure>
+    </div>
+    <div class="note">
+      <h3>Scope of these results</h3>
+      <p class="muted">The pilot compares one wetland with one urban area and one data center, so the results are suggestive, not final. The next phase scales the study to hundreds of wetlands and every reporting facility in the region.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>What I did</h2>
+    <div class="skills">
+      <div><h3>Research design and analysis</h3><ul>
+        <li>Framed a two-part study linking an ecological signal to an infrastructure outcome</li>
+        <li>ANOVA with Tukey HSD; OLS with structural breaks, fixed effects and HAC errors</li>
+        <li>Stress-tested my own findings and redesigned the study around the weak points</li>
+      </ul></div>
+      <div><h3>Data and tools</h3><ul>
+        <li>Google Earth Engine: MODIS, Landsat, Sentinel-2, ERA5-Land, National Wetlands Inventory</li>
+        <li>Virginia DEQ withdrawal records, NOAA climate data, public-records requests</li>
+        <li>Python (pandas, statsmodels, matplotlib), JavaScript, Excel</li>
+      </ul></div>
+    </div>
+  </section>
+
+  <section id="next">
+    <h2>Next steps</h2>
+    <div class="steps">
+      <div class="step"><div><h3>Pilot study and working draft</h3><p>Two-site temperature comparison and single-facility water model</p></div><span class="st done">Done</span></div>
+      <div class="step"><div><h3>Earth Engine pipeline</h3><p>Hundreds of wetland patches at 30 m, day and night temperature 2015 to 2025, wet-bulb weather at each facility</p></div><span class="st prog">In progress</span></div>
+      <div class="step"><div><h3>Multi-facility water panel</h3><p>Monthly withdrawals for every reporting facility in Northern Virginia</p></div><span class="st prog">In progress</span></div>
+      <div class="step"><div><h3>Regional exposure model</h3><p>Wetland cooling, wet-bulb temperature and water use across the data center fleet, with uncertainty</p></div><span class="st next">Planned</span></div>
+      <div class="step"><div><h3>Journal submission</h3><p>Peer-reviewed article</p></div><span class="st next">Planned</span></div>
+    </div>
+    <p class="muted">Code for the figures and the Earth Engine pipeline is on <a href="https://github.com/Kkzou/wetland-cooling-data-centers">GitHub</a>. The manuscript and data are available on request.</p>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  <p>© 2026 Yujia Zou. Results are preliminary and not yet peer reviewed.</p>
+  <p>Data: NASA MODIS MOD11A2, Copernicus Sentinel-2, Virginia DEQ, NOAA NCEI, USFWS NWI, ECMWF ERA5-Land.</p>
+</div></footer>
+</body>
+</html>
