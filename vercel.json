@@ -1,0 +1,7 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "cd wanwu && npm ci --omit=dev",
+  "buildCommand": "cd wanwu && node site/build.mjs --out ../dist --legacy-root ..",
+  "outputDirectory": "dist",
+  "trailingSlash": true
+}
